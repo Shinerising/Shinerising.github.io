@@ -1,0 +1,289 @@
+<html>
+
+<head>
+    <style>
+        html {
+            margin: 0;
+            font: 16px;
+        }
+        
+        #area {
+            width: 100%;
+            margin-top: 100px;
+        }
+        
+        #main {
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        #head {
+            position: absolute;
+            left: 2%;
+            top: 5%;
+        }
+        
+        #face {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        #face01 {
+            position: absolute;
+            background: rgba(252, 195, 166, 1);
+            top: 70px;
+            left: 10px;
+            width: 180px;
+            height: 90px;
+            border-radius: 50px;
+            transform: rotate(-6deg);
+        }
+        
+        #face02 {
+            position: absolute;
+            background: rgba(252, 195, 166, 1);
+            left: 54px;
+            width: 150px;
+            height: 150px;
+            border-radius: 75px;
+        }
+        
+        #hair {
+            position: absolute;
+            left: 0;
+            top: 0;
+            left: 54px;
+        }
+        
+        #hair01 {
+            position: absolute;
+            overflow: hidden;
+            height: 30px;
+        }
+        
+        #hair02 {
+            position: absolute;
+            overflow: hidden;
+            width: 30px;
+            left: 120px;
+        }
+        
+        #hair03 {
+            background: rgba(5, 0, 3, 1);
+            width: 150px;
+            height: 150px;
+            border-radius: 75px;
+        }
+        
+        #hair04 {
+            background: rgba(5, 0, 3, 1);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-left: -120px;
+        }
+        
+        #eye {
+            position: absolute;
+            left: 65px;
+            top: 65px;
+        }
+        
+        #leye {}
+        
+        #reye {
+            position: absolute;
+            left: 58px;
+        }
+        
+        .eye01 {
+            position: absolute;
+            height: 22px;
+            left: -6px;
+            top: -10px;
+            overflow: hidden;
+        }
+        
+        .eye02 {
+            position: absolute;
+            background: rgba(0, 2, 2, 1);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
+        
+        .eye03 {
+            position: absolute;
+            background: rgba(254, 251, 249, 1);
+            left: 12px;
+            top: 12px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .eye04 {
+            border: rgba(164, 112, 85, 1) 1px solid;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        #eyebrow {
+            position: absolute;
+            left: 55px;
+            top: 26px;
+            animation: ani 2s infinite;
+        }
+        
+        #leyebrow {}
+        
+        #reyebrow {
+            position: absolute;
+            left: 58px;
+        }
+        
+        .eyebrow01 {
+            position: absolute;
+            width: 60px;
+            height: 30px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .eyebrow02 {
+            position: absolute;
+            background: rgba(3, 1, 7, 1);
+            width: 15px;
+            height: 15px;
+            left: 2px;
+            top: 18px;
+            border-radius: 50%;
+        }
+        
+        .eyebrow03 {
+            position: absolute;
+            background: rgba(3, 1, 7, 1);
+            width: 15px;
+            height: 15px;
+            left: 43px;
+            top: 18px;
+            border-radius: 50%;
+        }
+        
+        .eyebrow04 {
+            border: rgba(3, 1, 7, 1) 15px solid;
+            width: 30px;
+            height: 30px;
+            margin-top: 5px;
+            border-radius: 50%;
+        }
+        
+        #ear {
+            position: absolute;
+            left: 165px;
+            top: 80px;
+            background: rgba(252, 195, 166, 1);
+            width: 55px;
+            height: 70px;
+            border-radius: 50%;
+        }
+        
+        #mouth {
+            position: absolute;
+            left: 35px;
+            top: 125px;
+            background: rgba(118, 62, 65, 1);
+            width: 30px;
+            height: 40px;
+            border-radius: 50%;
+            transform: rotate(30deg);
+        }
+        
+        @keyframes ani {
+            0% {
+                top: 26px;
+            }
+            6% {
+                top: 12px;
+            }
+            12% {
+                top: 26px;
+            }
+            18% {
+                top: 26px;
+            }
+            24% {
+                top: 12px;
+            }
+            30% {
+                top: 26px;
+            }
+            100% {
+                top: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="area">
+        <div id="main">
+            <div id="head">
+                <div id="face">
+                    <div id="face01"></div>
+                    <div id="face02"></div>
+                </div>
+                <div id="hair">
+                    <div id="hair01">
+                        <div id="hair03"></div>
+                    </div>
+                    <div id="hair02">
+                        <div id="hair04"></div>
+                    </div>
+                </div>
+                <div id="eye">
+                    <div id="leye">
+                        <div class="eye01">
+                            <div class="eye04"></div>
+                        </div>
+                        <div class="eye02"></div>
+                        <div class="eye03"></div>
+                    </div>
+                    <div id="reye">
+                        <div class="eye01">
+                            <div class="eye04"></div>
+                        </div>
+                        <div class="eye02"></div>
+                        <div class="eye03"></div>
+                    </div>
+                </div>
+                <div id="eyebrow">
+                    <div id="leyebrow">
+                        <div class="eyebrow01">
+                            <div class="eyebrow04"></div>
+                        </div>
+                        <div class="eyebrow02"></div>
+                        <div class="eyebrow03"></div>
+                    </div>
+                    <div id="reyebrow">
+                        <div class="eyebrow01">
+                            <div class="eyebrow04"></div>
+                        </div>
+                        <div class="eyebrow02"></div>
+                        <div class="eyebrow03"></div>
+                    </div>
+                </div>
+                <div id="ear">
+                </div>
+                <div id="mouth">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
