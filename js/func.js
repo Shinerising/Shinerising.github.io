@@ -142,18 +142,18 @@ function textChange() {
 function nameChange() {
     'use strict';
     if ($('#send_name').val() !== "") {
-        $("#input_name").css("opacity", "0");
+        $("#input_name").hide();
         var str = $('#send_name').val();
         $("#charcount02").css("opacity", "1");
         $("#charcount02").html(8 - str.length);
         if (str.length <= 8) {
             $("#charcount02").css("color", "#888");
-            $("#send_name").css("box-shadow", "0px 0px 30px rgba(100, 100, 100, 1) inset")
+            $("#send_name").css("box-shadow", "0px 0px 30px rgba(100, 100, 100, 1) inset");
         } else {
             $("#charcount02").css("color", "#F88");
         }
     } else {
-        $("#input_name").css("opacity", "1");
+        $("#input_name").show();
         $("#charcount02").html("8");
         $("#charcount02").css("opacity", "0");
     }
