@@ -21,7 +21,7 @@ $(document).ready(function () {
     $("#moon").css("opacity", 1 - Math.abs(cHour - 12) / 6);
 
     $("#sendbox").click(function () {
-        if (!($(this).hasClass("expandbox")) && $(this).width() === 160) {
+        if (!($(this).hasClass("expandbox")) && $(this).css("opacity") === "1") {
             $(this).addClass("expandbox");
             var color = parseInt(Math.random() * 8, 10) + 1;
             $("#sendleaf .shape_heart").removeClass("color01 color02 color03 color04 color05 color06 color07 color08 ").addClass("color0" + color);
@@ -60,7 +60,11 @@ $(document).ready(function () {
         } else {
             $("#send_text").val("");
             $("#send_name").val("");
-            createLeafFrom(leavesCount, text, name, 0, $("body").scrollTop() + 658, 0, color);
+            $("#charcount01").html("70");
+            $("#charcount02").html("8");
+            $("#charcount01").css("opacity", "0");
+            $("#charcount02").css("opacity", "0");
+            createLeafFrom(leavesCount, text, name, 0, $("body").scrollTop() + 865, 0, color);
             resumeLeafStyle(leavesCount);
             leavesCount = leavesCount + 1;
             $("#sendleaf").css("opacity", "0");

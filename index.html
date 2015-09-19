@@ -414,12 +414,13 @@
             right: 60px;
             bottom: 60px;
             cursor: pointer;
-            border-radius: 80px;
+            border-radius: 50%;
             box-shadow: 0px 5px 5px rgba(100, 100, 100, .3);
             background: rgba(250, 250, 250, 1);
             background: -webkit-linear-gradient(top, rgba(250, 250, 250, 1), rgba(230, 230, 230, 1));
             animation: flow 0.5s 2s both;
-            transition: width .6s, height .6s, opacity .6s;
+            transform: scale(1) translate(0px, 0px);
+            transition: transform .6s, opacity .6s;
         }
         
         #sendbox:hover {
@@ -435,8 +436,7 @@
         }
         
         #sendbox.expandbox {
-            width: 860px;
-            height: 860px;
+            transform: scale(5) translate(-70px, -50px);
             opacity: 0;
         }
         
@@ -447,20 +447,16 @@
         #sendleaf {
             position: fixed;
             z-index: 100001;
-            width: 0px;
-            height: 0px;
-            right: 160px;
-            bottom: 160px;
-            transform: scale(0);
-            transition: width .6s, height .6s, right .6s, bottom .6s, transform .6s;
+            width: 160px;
+            height: 160px;
+            right: 60px;
+            bottom: 60px;
+            transform: scale(0) translate(0px, 0px);
+            transition: transform .6s;
         }
         
         #sendleaf.expandbox {
-            width: 800px;
-            height: 800px;
-            right: 90px;
-            bottom: 180px;
-            transform: scale(1);
+            transform: scale(1) translate(-670px, -550px);
         }
         
         #sendleaf .leaf_info {
@@ -543,34 +539,29 @@
         #sendbuttons {
             position: fixed;
             z-index: 100002;
-            width: 320px;
-            height: 0;
-            right: 0px;
-            bottom: 160px;
-            transform: scale(0);
-            transition: width .6s, height .6s, right .6s, bottom .6s, transform .6s;
+            width: 160px;
+            height: 160px;
+            right: 60px;
+            bottom: 60px;
+            transform: scale(0) translate(0px, 0px);
+            transition: transform .6s;
         }
         
         #sendbuttons.expandbox {
-            transform: scale(1);
-            width: 800px;
-            height: 160px;
-            right: 80px;
-            bottom: 280px;
+            transform: scale(1) translate(55px, 0px);
         }
         
         #sendbuttons .button {
             position: absolute;
             width: 160px;
             height: 160px;
-            top: 120px;
+            top: 30px;
             border-radius: 50%;
-            transition: top .6s, width .6s, height .6s;
         }
         
         #button_cancel {
             z-index: 100002;
-            left: 50px;
+            right: 720px;
             box-shadow: 0px 5px 5px rgba(100, 100, 100, .3);
             background: rgba(250, 150, 150, 1);
             background: -webkit-linear-gradient(top, rgba(250, 150, 150, 1), rgba(230, 130, 130, 1));
@@ -578,7 +569,7 @@
         
         #button_submit {
             z-index: 100003;
-            right: 50px;
+            right: 90px;
             box-shadow: 0px 5px 5px rgba(100, 100, 100, .3);
             background: rgba(250, 250, 250, 1);
             background: -webkit-linear-gradient(top, rgba(150, 250, 150, 1), rgba(130, 230, 130, 1));
@@ -613,12 +604,10 @@
         
         @keyframes flow {
             from {
-                transform: scale(0);
-                bottom: -100px;
+                bottom: -200px;
             }
             to {
-                transform: scale(1);
-                bottom: 100px;
+                bottom: 50px;
             }
         }
     </style>
