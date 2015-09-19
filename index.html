@@ -382,15 +382,16 @@
         .leaf_text {
             text-align: center;
             width: 100%;
-            height: 0px;
+            height: 270px;
             overflow: hidden;
             font: normal normal normal 45px/1.2 Cursive;
-            color: #000;
-            transition: height 0.5s;
+            color: rgba(0,0,0,.5);
+            transform: scale(0);
+            transition: transform 0.5s;
         }
         
         .fullshow .leaf_text {
-            height: 270px;
+            transform: scale(1);
         }
         
         .leaf_name {
@@ -400,14 +401,13 @@
             overflow: hidden;
             text-align: center;
             font: normal normal normal 48px/1.5 Cursive;
-            font-size: 96px;
-            color: #000;
-            transition: height 0.5s, font-size 0.5s;
+            color: rgba(0,0,0,.5);
+            transform: scale(2) translate(0px, -80px);
+            transition: transform 0.5s;
         }
         
         .fullshow .leaf_name {
-            height: 72px;
-            font-size: 48px;
+            transform: scale(1);
         }
         
         #sendbox {
