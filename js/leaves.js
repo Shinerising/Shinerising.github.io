@@ -35,6 +35,7 @@ $(document).ready(function () {
             $("#sendbuttons").addClass("expandbox");
         }
     });
+
     $("#button_cancel").click(function () {
         if ($("#sendbox").hasClass("expandbox")) {
             $("#sendbox").removeClass("expandbox");
@@ -46,6 +47,7 @@ $(document).ready(function () {
             $("#sendbuttons").removeClass("expandbox");
         }
     });
+
     $("#button_submit").click(function () {
         var color, text, name;
         color = $("#sendleaf").attr("color");
@@ -58,12 +60,17 @@ $(document).ready(function () {
             $("#send_name").focus();
             $("#send_name").css("box-shadow", "0px 0px 30px rgba(250, 100, 100, 1) inset");
         } else {
+            
+            
+            
             $("#send_text").val("");
             $("#send_name").val("");
             $("#charcount01").html("70");
             $("#charcount02").html("8");
             $("#charcount01").css("opacity", "0");
             $("#charcount02").css("opacity", "0");
+            $("#input_text").css("opacity", "1");
+            $("#input_name").show();
             createLeafFrom(leavesCount, text, name, 0, $("body").scrollTop() + 865, 0, color);
             resumeLeafStyle(leavesCount);
             leavesCount = leavesCount + 1;
@@ -80,18 +87,22 @@ $(document).ready(function () {
         }
     });
 
-    $("body").click(function () {
-
-        var i, style;
-        for (i = 0; i < leavesCount; i = i + 1) {
-            if ($(".leaf:eq(" + i + ")").attr("id") !== "le_send") {
-                if ($(".leaf:eq(" + i + ")").hasClass("fullshow") && $(".leaf:eq(" + i + ")").css("z-index") === "1000") {
-                    style = $(".leaf:eq(" + i + ")").attr("ostyle");
-                    $(".leaf:eq(" + i + ")").attr("style", style);
-                    $(".leaf:eq(" + i + ")").removeClass("fullshow");
-                }
-            }
+    $("#send_name").bind("keypress", {}, function (e) {
+        var code = (e.KeyCode ? e.KeyCode : e.which);
+        if (code == 13) {
+            $("#button_submit").click();
         }
     });
 
+    $("body").click(function () {
+        var i, style;
+        if (fullLeafId > -1) {
+            i = fullLeafId;
+            if ($(".leaf:eq(" + i + ")").hasClass("fullshow") && $(".leaf:eq(" + i + ")").css("z-index") === "1000") {
+                style = $(".leaf:eq(" + i + ")").attr("ostyle");
+                $(".leaf:eq(" + i + ")").attr("style", style);
+                $(".leaf:eq(" + i + ")").removeClass("fullshow");
+            }
+        }
+    });
 });
