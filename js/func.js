@@ -108,7 +108,7 @@ function createLeafFrom(id, text, name, left, top, angel, color) {
             '<div class="leaf_info"><div class="leaf_text">' + text +
             '</div><div class="leaf_name">' + name +
             '</div></div><div class="button_like"></div></div></div>')
-        .click(function (evt) {
+        .click(function () {
             leaveOnClick(this);
         })
         .appendTo($("#leaves"));
