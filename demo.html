@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+Name:                   Clean Noti-Bar
+Author:                 Apollo Wayne
+Created Date:           2015.9.22
+Last Modified Date:     2015.9.22
+Used:
+    Iconic Font:        FontAwesome http://fontawesome.io
+-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clean Noti-Bar Demo</title>
+    <meta name="Author" content="Apollo Wayne">
+    <style>
+        body{
+        maring:0 auto;
+        border:none;
+        }
+        #area{
+            width:800px;
+            margin:0 auto;
+            margin-top:50px;
+        }
+        #main{
+            text-align: center;
+        }
+        h1, h2{
+            font-family: Roboto, Helvetica, Sans-Serif;
+        }
+        .text{
+            font: normal normal normal 16px/1.5 Roboto Slab, Georgia, Serif;
+        }
+        .littletext{
+            font-size:12px;
+        }
+        .code{
+            font-family: Courier New, monospace;
+        }
+        .icon:after{
+            font-family: FontAwesome;
+        }
+        .round{
+            width:18px;
+            height:18px;
+            border-radius: 50%;
+            display:inline-block;
+        }
+    </style>
+    
+    <!-- You Only Need To Add These Two Lines Below In Your Webpage!! -->
+    <link rel="stylesheet" href="noti.css">
+    <script src="noti.js"></script>
+</head>
+<body>
+    <div id="area">
+    <div id="main">
+        <h1 id="title">Clean Noti-Bar Demo</h1>
+        <div class="text">
+            <a href="https://github.com/Shinerising/Clean-Noti-Bar">Check the project from Github</a>
+        </div>
+        <h2>What you need:</h2>
+        <div class="text">
+            Download all the files and iconic fonts.
+            <br><span class="littletext">(We use Awesome Font to draw the icon beside the words.
+            <br>So pay attention if you already used it!)</span>
+            <br>And add these two lines into your page's <span class="code">&#60head&#62</span> :
+            <br><span class="code">&#60link rel=&#34stylesheet&#34 href=&#34noti.css&#34&#62</span>
+            <br><span class="code">&#60script src=&#34noti.js&#34&#62&#60/script&#62</span>
+        </div>
+        <h2>What you get:</h2>
+        <div class="text">
+            Firstly, call <span class="code">createNotification("YOUR MESSAGE")</span> to create the element.
+            <br>Then, use <span class="code">setNotification("MESSAGE", ICON, COLOR)</span> to replay the noti-bar.
+            <br>There are some demos, click to see the effects:
+            <br><a href="javascript:setNotification('Hello World!', 4, 2);"><span class="code">setNotification("Hello World!", 4, 2)</span></a>
+            <br><a href="javascript:setNotification('原力與你同在', 0, 0);"><span class="code">setNotification("原力與你同在", 1, 1)</span></a>
+            <br><a href="javascript:setNotification('お兄さんは大嫌いです！', 1, 1);"><span class="code">setNotification("お兄さんは大嫌いです！", 1, 1)</span></a>
+        </div>
+        <h2>Parameters:</h2>
+        <div class="text">
+            <span class="code">setNotification("MESSAGE", ICON, COLOR)</span><br>
+            <span class="code">ICON</span>: 
+            0 <span class="icon icon_happy"></span>
+            1 <span class="icon icon_unhappy"></span>
+            2 <span class="icon icon_exclamation-c"></span>
+            3 <span class="icon icon_stop"></span>
+            4 <span class="icon icon_bug"></span><br>
+            <span class="code">Color</span>: 
+            0 <span class="round greenback"></span>
+            1 <span class="round redback"></span>
+            2 <span class="round silverback"></span>
+        </div>
+        <h2>Thanks:</h2>
+        <div class="text">Splendid Iconic Font From FontAwesome <a href="http://fontawesome.io" target="_blank">http://fontawesome.io</a></div>
+        </div>
+    </div>
+    <script>createNotification("Welcome!!");</script>
+</body>
+</html>
