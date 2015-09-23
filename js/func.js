@@ -1,6 +1,7 @@
 /*global $, jQuery, alert,
     lastLeafId:true,
-    fullLeafId:true
+    fullLeafId:true,
+    serverPostLike
 */
 
 function addTree() {
@@ -30,9 +31,12 @@ function leaveOnClick(node) {
     'use strict';
     var style, top, id, i;
     if ($(node).find(".button_like").is(":hover")) {
-        
-        $(node).find(".button_like").fadeOut();
-        
+        id = $(node).attr("sid");
+        serverPostLike(id);
+        $(node).find(".button_like")
+            .css("animation", "buttonexpand .6s")
+            .css("-webkit-animation", "buttonexpand .6s")
+            .fadeOut();
     } else {
         if ($(node).hasClass("fullshow")) {
             if (lastLeafId > -1) {
@@ -47,7 +51,7 @@ function leaveOnClick(node) {
         } else {
             closeLeave();
             style = $(node).attr("style");
-            top = $("body").scrollTop() + 0.1 * $(window).height();
+            top = $(window).scrollTop() + 0.1 * $(window).height();
             $(node).attr("ostyle", style);
             style = "transform: translate(0px, " + top + "px);-webkit-transform: translate(0px, " + top + "px);";
             $(node).attr("style", style);
@@ -59,9 +63,27 @@ function leaveOnClick(node) {
     }
 }
 
-function createLeaf(id, text, name, color, delay) {
+function removeLeaf(id) {
     'use strict';
-    var left, top, angel;
+    if (fullLeafId === id) {
+        closeLeave();
+        fullLeafId = -1;
+        lastLeafId = -1;
+    }
+    if (lastLeafId === id) {
+        lastLeafId = -1;
+    }
+    $("#le_" + id).remove();
+}
+
+function setLeafUID(id, uid) {
+    'use strict';
+    $("#le_" + id).attr("uid", id);
+}
+
+function createLeaf(id, uid, text, name, color, delay, islike) {
+    'use strict';
+    var left, top, angel, likestyle;
     top = id * 250;
     if (id % 4 === 0) {
         angel = 5;
@@ -76,10 +98,15 @@ function createLeaf(id, text, name, color, delay) {
         angel = -10;
         left = 1400 + Math.tan(angel / 180 * Math.PI) * top;
     }
+    if (islike === 1) {
+        likestyle = "display:none;";
+    } else {
+        likestyle = "display:block;";
+    }
     while (top / 5 - 200 > $("#tree_body").height()) {
         addTree();
     }
-    $('<div class="leaf noselect" id="le_' + id + '" sid=' + id + ' style="' +
+    $('<div class="leaf noselect" id="le_' + id + '" sid=' + id + ' uid=' + uid + ' style="' +
             'transform: scale(0.2) rotate(' + angel + 'deg) translate(' + left + 'px, ' + top + 'px);' +
             '-webkit-transform: scale(0.2) rotate(' + angel + 'deg) translate(' + left + 'px, ' + top + 'px);" ostyle="">' +
             '<div class="leaf_main"><div class="leaf_back">' +
@@ -87,7 +114,7 @@ function createLeaf(id, text, name, color, delay) {
             '<div class="shape_heart shape_text color0' + color + '"></div></div>' +
             '<div class="leaf_info"><div class="leaf_text">' + text +
             '</div><div class="leaf_name">' + name +
-            '</div></div><div class="button_like"></div></div></div>')
+            '</div></div><div class="button_like" style="' + likestyle + '"></div></div></div>')
         .click(function () {
             leaveOnClick(this);
         })
@@ -99,7 +126,7 @@ function createLeaf(id, text, name, color, delay) {
 
 function createLeafFrom(id, text, name, left, top, angel, color) {
     'use strict';
-    $('<div class="leaf noselect" id="le_' + id + '" sid=' + id + ' style="' +
+    $('<div class="leaf noselect" id="le_' + id + '" sid=' + id + ' uid=' + id + ' style="' +
             'transform:rotate(' + angel + 'deg) translate(' + left + 'px, ' + top + 'px);' +
             '-webkit-transform:rotate(' + angel + 'deg) translate(' + left + 'px, ' + top + 'px);" ostyle="">' +
             '<div class="leaf_main"><div class="leaf_back">' +
@@ -240,12 +267,54 @@ function setNotification(message, t, c) {
         color = "silverback";
         break;
     }
-    $("#notiarea").removeClass("greenback redback silverback");
-    $("#notiimage").removeClass("icon_happy icon_unhappy icon_exclamation-c icon_stop icon_bug");
-    $("#notiarea").addClass(color);
-    $("#notiimage").addClass(type);
-    $("#notimessage").html(message);
+    if (document.getElementById("notiarea").hasAttribute("class")) {
+        document.getElementById("notiarea").removeAttribute("class");
+    }
+    if (document.getElementById("notiimage").hasAttribute("class")) {
+        document.getElementById("notiimage").removeAttribute("class");
+    }
+    document.getElementById("notiarea").setAttribute("class", color);
+    document.getElementById("notiimage").setAttribute("class", type);
+    document.getElementById("notimessage").innerHTML = message;
     ele = document.getElementById("notification");
     newele = ele.cloneNode(true);
     ele.parentNode.replaceChild(newele, ele);
+}
+
+function newComer(i) {
+    'use strict';
+    switch (i) {
+    case 0:
+        setNotification("欢迎打开爱情树！", 0, 0);
+        break;
+    case 1:
+        setNotification("你可以在这里倾诉", 2, 2);
+        break;
+    case 2:
+        setNotification("也可以在这里聆听", 4, 2);
+        break;
+    case 3:
+        setNotification("每一片小小的叶子", 2, 2);
+        break;
+    case 4:
+        setNotification("都承载着一片真心", 4, 2);
+        break;
+    case 5:
+        setNotification("但是请注意", 3, 1);
+        break;
+    case 6:
+        setNotification("恶作剧是不行的哦", 1, 1);
+        break;
+    case 7:
+        setNotification("那么", 2, 2);
+        break;
+    case 8:
+        setNotification("开始留下回忆吧！", 0, 0);
+        break;
+    case 9:
+        return;
+    }
+    setTimeout(function () {
+        newComer(i + 1);
+    }, 2500);
 }
