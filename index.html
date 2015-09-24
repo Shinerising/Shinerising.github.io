@@ -464,6 +464,8 @@ Thanks to the individuals and groups who provided their helps!
             position: absolute;
             margin: 0 auto;
             cursor: pointer;
+            transform: scale(1) rotate(0deg) translate(0vw, 0vw);
+            -webkit-transform: scale(1) rotate(0deg) translate(0vw, 0vw);
             transition: transform .5s;
             -webkit-transition: -webkit-transform .5s;
         }
@@ -566,15 +568,15 @@ Thanks to the individuals and groups who provided their helps!
             text-align: center;
             font: normal normal normal 5vw/1.5 Cursive;
             color: rgba(0, 0, 0, .5);
-            transform: scale(2) translate(0vw, -10vw);
-            -webkit-transform: scale(2) translate(0vw, -10vw);
+            transform: scale(1.5) translate(0vw, -15vw);
+            -webkit-transform: scale(1.5) translate(0vw, -15vw);
             transition: transform .5s;
             -webkit-transition: -webkit-transform .5s;
         }
         
         .fullshow .leaf_name {
-            transform: scale(1);
-            -webkit-transform: scale(1);
+            transform: scale(1) translate(0vw, 0vw);
+            -webkit-transform: scale(1) translate(0vw, 0vw);
         }
         
         .button_like {
