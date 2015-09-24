@@ -15,7 +15,7 @@ Thanks to the individuals and groups who provided their helps!
 <head itemscope="" itemtype="http://schema.org/WebSite">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=980, initial-scale=1, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.367, user-scalable=0">
     <title itemprop="name">爱♡情♡树</title>
     <meta name="Author" content="Apollo Wayne & ZYY">
     <meta property="og:title" content="爱♡情♡树" />
@@ -48,9 +48,11 @@ Thanks to the individuals and groups who provided their helps!
     <link rel="icon" type="image/png" sizes="1024x1024" href="images/icon_1024.png">
 
     <script>
-        var viewport = document.querySelector("meta[name=viewport]");
+        var metaTag=document.createElement('meta');
         var scale = window.outerWidth / 980;
-        viewport.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale + ', user-scalable=0');
+metaTag.name = "viewport"
+metaTag.content = "width=device-width, initial-scale="+scale+", maximum-scale="+scale+", user-scalable=0"
+document.getElementsByTagName('head')[0].appendChild(metaTag);
     </script>
     
     <script src="js/jquery-2.1.3.min.js"></script>
