@@ -53,7 +53,7 @@ function leaveOnClick(node) {
             style = $(node).attr("style");
             top = ($(window).scrollTop() + 0.1 * $(window).height()) / $(window).width() * 100;
             $(node).attr("ostyle", style);
-            style = "transform: translate(0vw, " + top + "vw);-webkit-transform: translate(0vw, " + top + "vw);";
+            style = "transform: translate(0, " + top + "vw);-webkit-transform: translate(0, " + top + "vw);";
             $(node).attr("style", style);
             $(node).css("z-index", 1000);
             $(node).addClass("fullshow");
@@ -106,9 +106,11 @@ function createLeaf(id, uid, text, name, color, delay, islike) {
     while ((top - 100) / 500 * $(window).width() > $("#tree_body").height()) {
         addTree();
     }
+    top = top / 100 * $(window).width();
+    left = left / 100 * $(window).width();
     $('<div class="leaf noselect" id="le_' + id + '" sid=' + id + ' uid=' + uid + ' style="' +
-            'transform: scale(0.2) rotate(' + angel + 'deg) translate(' + left + 'vw, ' + top + 'vw);' +
-            ' -webkit-transform: scale(0.2) rotate(' + angel + 'deg) translate(' + left + 'vw, ' + top + 'vw);" ostyle="">' +
+            'transform: scale(0.2) rotate(' + angel + 'deg) translate(' + left + 'px, ' + top + 'px);' +
+            ' -webkit-transform: scale(0.2) rotate(' + angel + 'deg) translate(' + left + 'px, ' + top + 'px);" ostyle="">' +
             '<div class="leaf_main"><div class="leaf_back">' +
             '<div class="shape_back shape_text"></div>' +
             '<div class="shape_heart shape_text color0' + color + '"></div></div>' +
