@@ -89,7 +89,7 @@ $(document).ready(function () {
             text = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/(?:\r\n|\r|\n)/g, '<br />');
             name = name.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-            createLeafFrom(leavesCount, text, name, 0, ($("body").scrollTop() + $(window).height() * 0.96) / $(window).width() * 100 - 80, 0, color);
+            createLeafFrom(leavesCount, text, name, 0, ($("body").scrollTop() + $(window).height() * 0.96) - $(window).width() * 0.8, 0, color);
             resumeLeafStyle(leavesCount);
 
             serverPostNewLeaf(text, name, color);
