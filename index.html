@@ -458,6 +458,16 @@ Thanks to the individuals and groups who provided their helps!
             -webkit-transition: -webkit-transform .5s;
         }
         
+        .leaf.send {
+            width: 80vw;
+            height: 80vw;
+            position: absolute;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: transform .5s;
+            -webkit-transition: -webkit-transform .5s;
+        }
+        
         .color01:before {
             color: lightgoldenrodyellow;
         }
@@ -883,11 +893,11 @@ Thanks to the individuals and groups who provided their helps!
             position: fixed;
             z-index: 100005;
             width: 100%;
-            top: -15vw;
+            top: -150px;
             text-align: center;
             display: none;
-            transform: translateY(0vw);
-            -webkit-transform: translateY(0vw);
+            transform: translateY(0px);
+            -webkit-transform: translateY(0px);
             animation: drop 4s;
             -webkit-animation: drop 4s;
         }
@@ -1003,19 +1013,19 @@ Thanks to the individuals and groups who provided their helps!
         
         @keyframes drop {
             0% {
-                transform: translateY(0vw);
+                transform: translateY(0px);
                 opacity: 0;
             }
             20% {
-                transform: translateY(20vw);
+                transform: translateY(200px);
                 opacity: 1;
             }
             80% {
-                transform: translateY(20vw);
+                transform: translateY(200px);
                 opacity: 1;
             }
             100% {
-                transform: translateY(0vw);
+                transform: translateY(0px);
                 opacity: 0;
             }
         }  
@@ -1087,19 +1097,19 @@ Thanks to the individuals and groups who provided their helps!
         
         @-webkit-keyframes drop {
             0% {
-                -webkit-transform: translateY(0vw);
+                -webkit-transform: translateY(0px);
                 opacity: 0;
             }
             20% {
-                -webkit-transform: translateY(20vw);
+                -webkit-transform: translateY(200px);
                 opacity: 1;
             }
             80% {
-                -webkit-transform: translateY(20vw);
+                -webkit-transform: translateY(200px);
                 opacity: 1;
             }
             100% {
-                -webkit-transform: translateY(0vw);
+                -webkit-transform: translateY(0px);
                 opacity: 0;
             }
         }
