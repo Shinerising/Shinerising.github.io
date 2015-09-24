@@ -121,7 +121,7 @@ $(document).ready(function () {
     $("#back").click(function () {
         closeLeave();
     });
-
+/*
     $(window).scroll(function () {
         if ($(this).scrollTop() + $(this).height() > $("body").height() - 42) {
             setTimeout(function () {
@@ -129,4 +129,5 @@ $(document).ready(function () {
             }, 1000);
         }
     });
+    */
 });
