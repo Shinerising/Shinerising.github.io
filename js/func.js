@@ -53,7 +53,7 @@ function leaveOnClick(node) {
             style = $(node).attr("style");
             top = ($(window).scrollTop() + 0.1 * $(window).height()) / $(window).width() * 100;
             $(node).attr("ostyle", style);
-            style = "transform: translate(0, " + top + "vw);-webkit-transform: translate(0, " + top + "vw);";
+            style = "transform: translate(0vw, " + top + "vw);-webkit-transform: translate(0vw, " + top + "vw);";
             $(node).attr("style", style);
             $(node).css("z-index", 1000);
             $(node).addClass("fullshow");
