@@ -452,6 +452,18 @@ Thanks to the individuals and groups who provided their helps!
             position: absolute;
             margin: 0 auto;
             cursor: pointer;
+            transform: scale(1) rotate(0deg) translate(0vw, 0vw);
+            -webkit-transform: scale(1) rotate(0deg) translate(0vw, 0vw);
+            transition: transform .5s;
+            -webkit-transition: -webkit-transform .5s;
+        }
+        
+        .leaf.send {
+            width: 80vw;
+            height: 80vw;
+            position: absolute;
+            margin: 0 auto;
+            cursor: pointer;
             transition: transform .5s;
             -webkit-transition: -webkit-transform .5s;
         }
@@ -561,8 +573,8 @@ Thanks to the individuals and groups who provided their helps!
         }
         
         .fullshow .leaf_name {
-            transform: scale(1);
-            -webkit-transform: scale(1);
+            transform: scale(1) translate(0vw, 0vw);
+            -webkit-transform: scale(1) translate(0vw, 0vw);
         }
         
         .button_like {
@@ -1198,7 +1210,7 @@ Thanks to the individuals and groups who provided their helps!
     <div id="grass"></div>
     <div id="sendbox"></div>
     <div id="sendleaf" color="01">
-        <div class="leaf fullshow" id="le_send" style="" ostyle="">
+        <div class="leaf fullshow send" id="le_send" style="" ostyle="">
             <div class="leaf_main">
                 <div class="leaf_back">
                     <div class="shape_back shape_text"></div>
