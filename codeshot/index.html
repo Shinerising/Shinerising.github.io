@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Code Shot!</title>
+    <style>
+        html {
+            font-size: 10vw;
+            font-family: courier, monospace;
+        }
+        
+        body {
+            margin: 0;
+        }
+        
+        #area {
+            width: 100%;
+            position: relative;
+        }
+        
+        #main {
+            width: 8rem;
+            margin: 0 auto;
+        }
+        
+        .container {
+            float: left;
+            width: 20%;
+        }
+        
+        .box {
+            position: relative;
+            width: 1.4rem;
+            margin: 0 auto;
+            padding-top: .2rem;
+            padding-bottom: 1rem;
+            box-shadow: 0 0 .2rem rgba(100, 100, 100, .4) inset;
+        }
+        
+        #containers1 .box {
+            padding-top: 1rem;
+            padding-bottom: .2rem;
+        }
+        
+        .pic {
+            width: 1rem;
+            height: 4.7rem;
+            overflow: hidden;
+            margin: 0 auto;
+            box-shadow: 0 0 .2rem rgba(100, 100, 100, .4);
+        }
+        
+        .pic img {
+            width: 100%;
+        }
+        
+        .boxinfo {
+            font-size: .12rem;
+            line-height: .2rem;
+            letter-spacing: 0;
+            font-weight: bold;
+            position: absolute;
+            text-align: center;
+            width: 1rem;
+            bottom: .3rem;
+            left: .2rem;
+            margin: 0;
+        }
+        
+        .coderefer {
+            font-size: .1rem;
+            line-height: .1rem;
+            letter-spacing: 0;
+            position: absolute;
+            text-align: center;
+            color: #888;
+            width: 1rem;
+            bottom: .1rem;
+            left: .2rem;
+            margin: 0;
+        }
+        
+        #containers1 .boxinfo {
+            top: .5rem;
+            bottom: auto;
+        }
+        
+        #containers1 .coderefer {
+            top: .7rem;
+            bottom: auto;
+        }
+        
+        #containers0,
+        #containers1 {
+            height: 6rem;
+        }
+        
+        #middlearea {
+            width: 100%;
+            height: 1.6rem;
+            margin-bottom: .2rem;
+        }
+        
+        #centerbox {
+            width: 6rem;
+            margin: 0 auto;
+        }
+        
+        #infobox {
+            height: .4rem;
+            font-size: .3rem;
+            line-height: .4rem;
+            text-align: center;
+        }
+        
+        #destext {
+            height: .4rem;
+            font-size: .12rem;
+            line-height: .2rem;
+            text-align: center;
+        }
+        
+        #labelbox {
+            height: .6rem;
+            padding: .2rem 0;
+            font-size: .2rem;
+            line-height: .25rem;
+            letter-spacing: -1rem;
+            text-align: center;
+        }
+        
+        .label {
+            float: left;
+            letter-spacing: 0;
+            width: 1rem;
+            height: .2rem;
+            margin: 0.05rem .1rem;
+            text-align: center;
+            font-size: .12rem;
+            line-height: .12rem;
+            cursor: pointer;
+            box-shadow: 0 0 .1rem rgba(100, 100, 100, .5);
+            border: .05rem solid #FFF;
+            box-sizing: border-box;
+            background: #FFF;
+        }
+        
+        #containers0 .label {
+            position: absolute;
+            bottom: .6rem;
+            left: .2rem;
+            margin: 0;
+        }
+        
+        #containers1 .label {
+            position: absolute;
+            top: .2rem;
+            left: .2rem;
+            margin: 0;
+        }
+        
+        #cbutton {
+            display: none;
+            font-size: .2rem;
+            line-height: .25rem;
+            text-align: center;
+            padding: .2rem;
+            width: 3rem;
+            margin: 0 auto;
+            margin-top: -.9rem;
+            background: #FFF;
+            cursor: pointer;
+            box-shadow: 0 0 .1rem rgba(100, 100, 100, .5);
+        }
+        
+        #sbutton {
+            display: none;
+            font-size: .16rem;
+            line-height: .25rem;
+            text-align: center;
+            padding: .05rem;
+            width: 2rem;
+            margin: 0 auto;
+            background: #FFF;
+            cursor: pointer;
+            box-shadow: 0 0 .1rem rgba(100, 100, 100, .5);
+        }
+        
+        #yscore {
+            display: none;
+            font-size: .25rem;
+            line-height: .3rem;
+            text-align: center;
+            padding: .2rem;
+            width: 4rem;
+            margin: 0 auto;
+            margin-top: -1.2rem;
+            background: #FFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="area">
+        <div id="main">
+            <div id="containers0">
+                <div class="container">
+                    <div class="box droparea" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="pic"><img></div>
+                        <div class="boxinfo"></div>
+                        <div class="coderefer"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="box droparea" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="pic"><img></div>
+                        <div class="boxinfo"></div>
+                        <div class="coderefer"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="box droparea" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="pic"><img></div>
+                        <div class="boxinfo"></div>
+                        <div class="coderefer"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="box droparea" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="pic"><img></div>
+                        <div class="boxinfo"></div>
+                        <div class="coderefer"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="box droparea" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="pic"><img></div>
+                        <div class="boxinfo"></div>
+                        <div class="coderefer"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="middlearea">
+                <div id="centerbox">
+                    <div id="infobox">Code Shot!</div>
+                    <div id="destext">Are you a master of codes?
+                        <br>Drag the labels to their thumbs and see if you could guess them all.</div>
+                    <div id="labelbox" class="lbox droparea" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div draggable="true" ondragstart="drag(event)" id="label01" class="label">JavaScript</div>
+                        <div draggable="true" ondragstart="drag(event)" id="label02" class="label">C/C++</div>
+                        <div draggable="true" ondragstart="drag(event)" id="label03" class="label">C Header</div>
+                        <div draggable="true" ondragstart="drag(event)" id="label04" class="label">Python</div>
+                        <div draggable="true" ondragstart="drag(event)" id="label05" class="label">PHP</div>
+                        <div draggable="true" ondragstart="drag(event)" id="label06" class="label">Ruby</div>
+                        <div draggable="true" ondragstart="drag(event)" id="label07" class="label">Objective-C</div>
+                        <div draggable="true" ondragstart="drag(event)" id="label08" class="label">Java</div>
+                        <div draggable="true" ondragstart="drag(event)" id="label09" class="label">HTML</div>
+                        <div draggable="true" ondragstart="drag(event)" id="label10" class="label">CSS</div>
+                    </div>
+                    <div id="cbutton" onclick="showanswer()">Click to Check!</div>
+                    <div id="yscore">Your Score is: </div>
+                    <a id="sbutton" href="#" target="_blank">Share Your Score</a>
+                </div>
+            </div>
+            <div id="containers1">
+                <div class="container">
+                    <div class="box droparea" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="pic"><img></div>
+                        <div class="boxinfo"></div>
+                        <div class="coderefer"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="box droparea" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="pic"><img></div>
+                        <div class="boxinfo"></div>
+                        <div class="coderefer"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="box droparea" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="pic"><img></div>
+                        <div class="boxinfo"></div>
+                        <div class="coderefer"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="box droparea" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="pic"><img></div>
+                        <div class="boxinfo"></div>
+                        <div class="coderefer"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="box droparea" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="pic"><img></div>
+                        <div class="boxinfo"></div>
+                        <div class="coderefer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var codeArray = ["PHP", "HTML", "CSS", "Ruby", "Objective-C", "JavaScript", "C/C++", "Python", "C Header", "Java"];
+        var codeName = [
+            "WordPress Login Page",
+            "W3 Consortium Homepage",
+            "Twitter Core Stylesheet",
+            "A Sample from Brightbox",
+            "Spotify SPTPersistentCache",
+            "jQuery Develop Version",
+            "Microsoft Matrix Functions",
+            "OpenStack Context",
+            "OpenCL Kernel Library",
+            "Android Calculater"
+        ];
+        var arrayshuffle = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        var record = {
+            score: 0
+        };
+
+        function showanswer() {
+            for (var i = 0; i < 10; i += 1) {
+                document.getElementsByClassName('boxinfo')[i].innerHTML = codeArray[arrayshuffle[i]];
+                document.getElementsByClassName('coderefer')[i].innerHTML = codeName[arrayshuffle[i]];
+                if (document.getElementsByClassName('label')[i].innerHTML === codeArray[arrayshuffle[i]]) {
+                    document.getElementsByClassName('label')[i].style.borderColor = "lightgreen";
+                    record.score += 10;
+                } else {
+                    document.getElementsByClassName('label')[i].style.borderColor = "lightcoral";
+                }
+            }
+            document.getElementById("cbutton").style.display = "none";
+            document.getElementById('yscore').style.display = "block";
+            document.getElementById('yscore').innerHTML = "Your Score is " + record.score;
+            document.getElementById("sbutton").style.display = "block";
+            document.getElementById("sbutton").href = "https://twitter.com/intent/tweet?text=I got " + record.score + " points in game #CodeShot ! Try to beat me! " + document.location.href;
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("id", ev.target.id);
+            var ele = findAncestor(ev.target, "droparea");
+            if (ele.classList.contains("box") && ele.classList.contains("in")) {
+                ele.classList.remove("in");
+            }
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("id");
+            var ele = findAncestor(ev.target, "droparea");
+            if (ele.classList.contains("box") && !ele.classList.contains("in")) {
+                document.getElementById(data).classList.add("dropped");
+                ele.classList.add("in");
+                ele.appendChild(document.getElementById(data));
+            } else if (ele.classList.contains("lbox")) {
+                document.getElementById(data).classList.remove("dropped");
+                ele.appendChild(document.getElementById(data));
+            }
+            if (document.getElementsByClassName("dropped").length === 10 && document.getElementById("sbutton").style.display !== "block") {
+                document.getElementById("cbutton").style.display = "block";
+            }
+        }
+
+        function findAncestor(el, cls) {
+            if (el.classList.contains(cls)) return el;
+            while ((el = el.parentElement) && !el.classList.contains(cls));
+            return el;
+        }
+
+        Array.prototype.shuffle = function () {
+            for (var j, x, i = this.length; i; j = parseInt(Math.random() * i), x = this[--i], this[i] = this[j], this[j] = x);
+            return this;
+        };
+
+        arrayshuffle.shuffle();
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < 10; i += 1) {
+            imgs[i].src = "png/" + arrayshuffle[i] + ".png";
+        }
+        
+        window.scrollTo(window, window.innerWidth * .4);
+    </script>
+</body>
+
+</html>
