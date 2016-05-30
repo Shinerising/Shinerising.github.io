@@ -60,15 +60,15 @@ body {
     height: 120px;
     border-radius: 50%;
     background: #EEE;
-    overflow:hidden;
+    overflow: hidden;
     animation: RotateShow 1s 1s both;
 }
 
 #avatar > img {
     width: 120%;
     height: 120%;
-    margin-top:-10%;
-    margin-left:-10%;
+    margin-top: -10%;
+    margin-left: -10%;
 }
 
 #info {
@@ -113,10 +113,10 @@ body {
 }
 
 .layer_title {
-    font-size:20px;
+    font-size: 20px;
     line-height: 30px;
-    margin:0 20px 30px 20px;
-    padding:10px 20px;
+    margin: 0 20px 30px 20px;
+    padding: 10px 20px;
     border-bottom: solid 2px #666;
     animation: FlowShow .5s both;
 }
@@ -128,8 +128,11 @@ body {
 }
 
 .box {
+    display: -moz-inline-stack;
     display: inline-block;
+    *display: inline;
     position: relative;
+    vertical-align: top;
     width: 30vw;
     height: 20vw;
     margin: auto 1.25vw;
@@ -166,7 +169,7 @@ body {
     animation: ImageShow 1s both;
 }
 
-.box_image.box_image_loading{
+.box_image.box_image_loading {
     opacity: .5;
     animation: ImageLoading 5s infinite;
 }
@@ -178,8 +181,9 @@ body {
     width: 90%;
     height: 40%;
     padding: 0 5%;
-    background-color: rgba(100, 100, 100, .8);
-    color: #FFF;
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow:0 0 1em rgba(100,100,100,.6);
+    color: #555;
     text-align: left;
     transition: bottom .5s;
 }
@@ -190,65 +194,118 @@ body {
     font-weight: bold;
 }
 
-.box_edu{
+.box_edu {
     text-align: left;
-    height:5em;
-    padding:0 1em;
+    height: 5em;
+    padding: 0 1em;
 }
 
-.box_edu_time{
-    font-size:.8em;
-    margin-top:.2em;
+.box_edu_time {
+    font-size: .8em;
+    margin-top: .2em;
 }
 
-.box_edu_school{
-    font-size:1.2em;
-    margin-top:.3em;
+.box_edu_school {
+    font-size: 1.2em;
+    margin-top: .3em;
     font-weight: bold;
-    margin-left:2em;
+    margin-left: 2em;
+    transform: scale(1.2) translate(1.2em, 0.4em);
+    transition: transform .5s;
 }
 
-.box_edu_study{
-    font-size:1em;
-    margin-left:2.4em;
+.box_edu_study {
+    font-size: 1em;
+    margin-left: 2.4em;
+    transform: scale(.5);
+    opacity: 0;
+    transition: transform .5s, opacity .5s;
 }
 
-.box_list{
+.box:hover .box_edu_school {
+    transform: none;
+}
+
+.box:hover .box_edu_study {
+    opacity: 1;
+    transform: none;
+}
+
+.box_spec {
+    position: relative;
+    background-color: #FFF;
+    transition: margin-top .5s;
+}
+
+.box_spec:hover .box_spec_title {
+    background-color: #EEE;
+}
+
+#box_spec1:hover {
+    margin-top: -2.5em;
+}
+
+#box_spec2:hover {
+    margin-top: -5em;
+}
+
+#box_spec3:hover {
+    margin-top: -7.5em;
+}
+
+.box_spec:hover .box_spec_text {
+    height: 6em;
+}
+
+.box_spec_title {
+    line-height: 2.5em;
+    cursor: pointer;
+}
+
+.box_spec_text {
+    height: 0;
+    font-size: .8em;
+    line-height: 2em;
+    overflow: hidden;
+    transition: height .5s;
+}
+
+.box_list {
     text-align: left;
-    height:2em;
-    padding:0 1em;
-    cursor:pointer;
-    overflow:hidden;
+    height: 2em;
+    padding: 0 1em;
+    cursor: pointer;
+    overflow: hidden;
 }
 
 .box_list:nth-child(odd) {
-    background-color:#EEE;
+    background-color: #EEE;
 }
 
 .box_list_text {
-    float:left;
-    height:2em;
+    float: left;
+    height: 2em;
     transition: transform .5s;
 }
 
 .box_list:hover .box_list_text {
-    transform:translateY(-2em);
+    transform: translateY(-2em);
 }
 
-.box_list_title{
-    font-size:1em;
-    line-height:2em;
+.box_list_title {
+    font-size: 1em;
+    line-height: 2em;
 }
 
-.box_list_subtitle{
-    font-size:.8em;
-    line-height:2.5em;
+.box_list_subtitle {
+    font-size: .8em;
+    line-height: 2.5em;
 }
 
-.box_list_star{
-    float:right;
-    font-size:1em;
-    line-height:2em;
+.box_list_star {
+    float: right;
+    font-size: 1em;
+    line-height: 2em;
 }
 
 .box_des {
@@ -267,7 +324,8 @@ body {
 }
 
 .box_keyword {
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(150, 150, 150, .8);
+    color:#FFF;
     padding: 0 .5em;
     margin-right: .5em;
     border-radius: .3em;
@@ -279,14 +337,18 @@ body {
     border-radius: 50%;
     background-color: aliceblue;
     cursor: pointer;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .4);
     transition: box-shadow .5s, opacity .5s;
     opacity: 0;
 }
 
 .box_button:hover {
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .4);
 }
-.box:hover .box_des, .box:hover .box_keywords, .box:hover .box_button{
+
+.box:hover .box_des,
+.box:hover .box_keywords,
+.box:hover .box_button {
     opacity: 1;
 }
 
@@ -298,7 +360,7 @@ body {
 
 .box_demo {
     position: absolute;
-    right: 1em;
+    right: 4em;
     bottom: .6em;
 }
 
@@ -326,7 +388,7 @@ body {
 
 .box_code {
     position: absolute;
-    right: 4em;
+    right: 1em;
     bottom: .6em;
 }
 
@@ -379,7 +441,7 @@ body {
     }
 }
 
-@keyframes ImageShow{
+@keyframes ImageShow {
     0% {
         opacity: 0;
     }
@@ -388,14 +450,14 @@ body {
     }
 }
 
-@keyframes ImageLoading{
+@keyframes ImageLoading {
     0% {
         opacity: 0;
     }
-    30%{
+    30% {
         opacity: .5;
     }
-    70%{
+    70% {
         opacity: .5;
     }
     100% {
@@ -414,10 +476,12 @@ body {
 
 @keyframes MoveShow {
     0% {
-        transform: translateX(-30%);opacity:0;
+        transform: translateX(-30%);
+        opacity: 0;
     }
     100% {
-        transform: none;opacity:1;
+        transform: none;
+        opacity: 1;
     }
 }
 

@@ -8,6 +8,19 @@
         <linkedin></linkedin>
         <twitter></twitter>
     </contact>
+    <columns>
+        <column>About Me</column>
+        <column>Education</column>
+        <column>My Specialties</column>
+        <column>My Skills</column>
+        <column>My Projects</column>
+    </columns>
+    <specialties>
+        <specialty words="Front-end Web Development">test</specialty>
+        <specialty words="Mobile Application Development">test</specialty>
+        <specialty words="Lightweight Game Design">test</specialty>
+        <specialty words="Data Mining &amp; Machine Learning">test</specialty>
+    </specialties>
     <skills>
         <skill stars="★★★★" words="JavaScript, Node.js, CSS3, PHP">Web Developing</skill>
         <skill stars="★★★" words="Unity, OpenGL">Game Design</skill>
@@ -31,15 +44,15 @@
 <lists>
     <item>
         <name>Awesome Farmer</name>
-        <description>test</description>
+        <description>A Strategy Mobile Game</description>
         <keywords>
             <keyword>Unity</keyword>
             <keyword>C#</keyword>
             <keyword>Game</keyword>
         </keywords>
         <image>images/awesomefarmer.jpg</image>
-        <code>test</code>
-        <demo>test</demo>
+        <code></code>
+        <demo>http://shinerising.github.io/awesomefarmer/</demo>
     </item>
 
     <item>
@@ -51,8 +64,8 @@
             <keyword>Node.js</keyword>
         </keywords>
         <image>images/mydiary.jpg</image>
-        <code>test</code>
-        <demo>test</demo>
+        <code>https://github.com/Shinerising/My-Diary</code>
+        <demo>https://mydairy-shinerising.rhcloud.com</demo>
     </item>
 
     <item>
@@ -63,8 +76,8 @@
             <keyword>CSS3</keyword>
         </keywords>
         <image>images/mangapush.jpg</image>
-        <code>test</code>
-        <demo>test</demo>
+        <code>https://github.com/Shinerising/Manga-Push</code>
+        <demo>https://mangapush-shinerising.rhcloud.com</demo>
     </item>
 
     <item>
@@ -75,8 +88,8 @@
             <keyword>Java</keyword>
         </keywords>
         <image>images/simpleweather.jpg</image>
-        <code>test</code>
-        <demo>test</demo>
+        <code>https://github.com/Shinerising/Simple-Weather-App</code>
+        <demo>https://play.google.com/store/apps/details?id=us.wayshine.apollo.myweather</demo>
     </item>
 
     <item>
@@ -86,13 +99,13 @@
             <keyword>JavaScript</keyword>
             <keyword>CSS3</keyword>
         </keywords>
-        <image>test</image>
-        <code>test</code>
-        <demo>test</demo>
+        <image>images/messagewall.jpg</image>
+        <code>https://github.com/Shinerising/Message-Wall</code>
+        <demo>https://shinerising.github.io/wall</demo>
     </item>
 
     <item>
-        <name>Flip it!</name>
+        <name>Toss it!</name>
         <description>An Game to Flip Your Phone</description>
         <keywords>
             <keyword>Android</keyword>
@@ -100,8 +113,8 @@
             <keyword>Game</keyword>
         </keywords>
         <image>images/flipit.jpg</image>
-        <code>test</code>
-        <demo>test</demo>
+        <code>https://github.com/Shinerising/FlipIt</code>
+        <demo>https://play.google.com/store/apps/details?id=us.wayshine.apollo.flipit</demo>
     </item>
 
     <item>
@@ -113,8 +126,8 @@
             <keyword>Game</keyword>
         </keywords>
         <image>images/sliceblocks.jpg</image>
-        <code>test</code>
-        <demo>test</demo>
+        <code></code>
+        <demo>https://play.google.com/store/apps/details?id=us.wayshine.apollo.sliceblocks</demo>
     </item>
 
     <item>
@@ -124,34 +137,34 @@
             <keyword>PHP</keyword>
             <keyword>HTML</keyword>
         </keywords>
-        <image>test</image>
-        <code>test</code>
-        <demo>test</demo>
+        <image>images/ebooks.jpg</image>
+        <code>https://github.com/Shinerising/EbooksPHPserver</code>
+        <demo></demo>
     </item>
 
     <item>
-        <name>Clean Noti-Bar</name>
-        <description>test</description>
+        <name>Clean Noti-Bar Plugin</name>
+        <description>A JS Plugin for Notification</description>
         <keywords>
             <keyword>JavaScript</keyword>
             <keyword>CSS3</keyword>
         </keywords>
-        <image>test</image>
-        <code>test</code>
-        <demo>test</demo>
+        <image>images/notibar.jpg</image>
+        <code>https://github.com/Shinerising/Clean-Noti-Bar</code>
+        <demo>https://shinerising.github.io/notibar/demo.html</demo>
     </item>
 
     <item>
         <name>Nowplaying Share Page</name>
-        <description>Gather Music Details for Fast Share</description>
+        <description>Gather Music Details for Sharing</description>
         <keywords>
             <keyword>PHP</keyword>
             <keyword>SQLite</keyword>
             <keyword>HTML</keyword>
         </keywords>
-        <image>test</image>
-        <code>test</code>
-        <demo>test</demo>
+        <image>images/nowplaying.jpg</image>
+        <code>https://github.com/Shinerising/NowplayingSharePage</code>
+        <demo></demo>
     </item>
 
     <item>
@@ -162,8 +175,8 @@
             <keyword>JavaScript</keyword>
         </keywords>
         <image>images/8biticon.jpg</image>
-        <code>test</code>
-        <demo>test</demo>
+        <code>https://github.com/Shinerising/8bit-Icon-Drawer</code>
+        <demo>https://shinerising.github.io/8biticondrawer/</demo>
     </item>
 
     <item>
@@ -174,9 +187,9 @@
             <keyword>C#</keyword>
             <keyword>Game</keyword>
         </keywords>
-        <image>test</image>
-        <code>test</code>
-        <demo>test</demo>
+        <image>images/lianliankan.jpg</image>
+        <code>https://github.com/Shinerising/PictureMatchingGame</code>
+        <demo></demo>
     </item>
 </lists>
 </source>
