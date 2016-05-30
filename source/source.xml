@@ -3,10 +3,9 @@
     <name>Apollo Wayne</name>
     <title>Web Developer, Game Designer</title>
     <contact>
-        <facebook></facebook>
-        <github></github>
-        <linkedin></linkedin>
-        <twitter></twitter>
+        <facebook>https://www.facebook.com/wsapollo</facebook>
+        <github>https://github.com/Shinerising</github>
+        <twitter>https://twitter.com/shinerising</twitter>
     </contact>
     <columns>
         <column>About Me</column>
@@ -119,7 +118,7 @@
 
     <item>
         <name>Slice Blocks</name>
-        <description>test</description>
+        <description>A Casual Game Written by OpenGL</description>
         <keywords>
             <keyword>Android</keyword>
             <keyword>Java</keyword>
