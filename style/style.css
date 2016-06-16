@@ -5,6 +5,7 @@ html {
 
 body {
     margin: 0;
+    background-color: lightgray;
 }
 
 #area {}
@@ -419,6 +420,13 @@ body {
     height: 0;
     margin-bottom: 5px;
     border-bottom: solid 2px #666;
+}
+
+footer{
+    font-size:.8em;
+    padding: 1em 0;
+    text-align: center;
+    background:linear-gradient(to bottom, whitesmoke, lightgray);
 }
 
 @keyframes DropShow {
