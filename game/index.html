@@ -1,0 +1,691 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Game Demo</title>
+    <meta name="viewport", content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <style>
+        html {
+            font-size: 5.5555555555556vh;
+            background: #000;
+        }
+        
+        body {
+            position: relative;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        #area {
+            position: relative;
+            width: 32rem;
+            height: 18rem;
+            background: #AAA;
+            margin: 0 auto;
+        }
+        
+        #area.hide {
+            transition: filter 2s .5s;
+            filter: brightness(0);
+            pointer-events: none;
+        }
+        
+        #ui {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .option-buttons {
+            position: absolute;
+            left: 29rem;
+            top: 1rem;
+        }
+        
+        .control-buttons {
+            position: absolute;
+            left: 1rem;
+            top: 14rem;
+        }
+        
+        .skill-buttons {
+            position: absolute;
+            left: 25rem;
+            top: 11rem;
+        }
+        
+        .button {
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .6);
+            box-shadow: 0 .1rem .1rem rgba(0, 0, 0, .4), 0 1rem 1rem rgba(255, 255, 255, .4) inset;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 80%, 80%;
+            cursor: pointer;
+        }
+        
+        .button.large {
+            width: 3rem;
+            height: 3rem;
+        }
+        
+        .button.active {
+            transform: translateY(.1rem);
+            box-shadow: 0 1rem 1rem rgba(0, 0, 0, .4) inset;
+        }
+        
+        .button.arrow-left {
+            left: 0;
+            top: 0;
+            background-image: url(images/arrowleft.png);
+        }
+        
+        .button.arrow-right {
+            left: 4rem;
+            top: 0;
+            background-image: url(images/arrowright.png);
+        }
+        
+        .button.refresh {
+            left: 0;
+            top: 0;
+            background-image: url(images/refresh.png);
+        }
+        
+        .button.skill-01 {
+            left: 4rem;
+            top: 0;
+        }
+        
+        .button.skill-02 {
+            left: 1.5rem;
+            top: 1.5rem;
+        }
+        
+        .button.skill-03 {
+            left: 0;
+            top: 4rem;
+        }
+        
+        #main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .scene {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            font-size: 2rem;
+            width: 32em;
+            height: 18em;
+        }
+        
+        #scene-01 .background {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: url(images/background.jpg) no-repeat center;
+            background-size: 100% 100%;
+        }
+        
+        #scene-01 .foreground {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: url(images/foreground.png) no-repeat center;
+            background-size: 100% 100%;
+        }
+        
+        #scene-01 .stage {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #ui>.key {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4em;
+            height: 4em;
+            background-image: url(images/key.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            transform: scaleX(-1);
+        }
+        
+        .board {
+            position: absolute;
+            width: 2em;
+            height: 2em;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .board-01 {
+            bottom: 1em;
+            left: 22em;
+            width: 16em;
+            height: 16em;
+            background-image: url(images/board03.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        
+        .board-02 {
+            bottom: 10em;
+            left: 5em;
+            width: 10em;
+            height: 5em;
+            background-image: url(images/board02.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        
+        .board-03 {
+            bottom: 2em;
+            left: 16em;
+            width: 12em;
+            height: 6em;
+            background-image: url(images/board01.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        
+        .door {
+            position: absolute;
+            width: 5em;
+            height: 5em;
+            bottom: 1em;
+            left: 24em;
+            background-image: url(images/door.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        
+        #scene-01 .sprites {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .sprite {
+            position: absolute;
+            width: 2em;
+            height: 2em;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .unity {
+            width: 2em;
+            height: 2em;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .unity.hide {
+            transition: filter 1.5s;
+            filter: brightness(0);
+        }
+        
+        .unity>.texture {
+            width: 2em;
+            height: 2em;
+            background-image: url(images/unity.png);
+            background-size: 800% 400%;
+            background-repeat: no-repeat;
+        }
+        
+        .unity.idle>.texture {
+            animation: unitychan_idle 4s infinite steps(6);
+        }
+        
+        .unity.run>.texture {
+            animation: unitychan_run 1s infinite steps(8);
+        }
+        
+        .unity.fly>.texture {
+            animation: unitychan_fly 1s infinite steps(2);
+        }
+        
+        .unity.drop>.texture {
+            animation: unitychan_drop 1s steps(4);
+            background-position: -12em -6em;
+        }
+        
+        .unity.fly:before {
+            content: '';
+            position: absolute;
+            width: 2em;
+            height: 2em;
+            top: -1.2em;
+            left: .4em;
+            background-image: url(images/butterfly.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            transform: scale(1.5);
+        }
+        
+        .unity.reverse>.texture {
+            transform: scaleX(-1);
+        }
+        
+        .sprite.bubble {
+            background-image: url(images/bubble.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            animation: flow 2s ease-in-out infinite;
+        }
+        
+        .bubble-01 {
+            bottom: 1em;
+            left: 20em;
+        }
+        
+        .bubble-02 {
+            bottom: 6em;
+            left: 23em;
+        }
+        
+        .sprite.key {
+            bottom: 11em;
+            left: 5em;
+            background-image: url(images/key.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            animation: flow 2s ease-in-out infinite;
+        }
+        
+        .sprite.bubble>.butterfly {
+            position: absolute;
+            width: 2em;
+            height: 2em;
+            bottom: 0;
+            left: 0;
+            background-image: url(images/butterfly.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        
+        .button>.butterfly {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+            background-image: url(images/butterfly.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            transform: scale(1.5);
+        }
+        
+        @keyframes unitychan_idle {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -12em 0;
+            }
+        }
+        
+        @keyframes unitychan_run {
+            0% {
+                background-position: 0 -4em;
+            }
+            100% {
+                background-position: -16em -4em;
+            }
+        }
+        
+        @keyframes unitychan_fly {
+            0% {
+                background-position: 0 -6em;
+            }
+            100% {
+                background-position: -4em -6em;
+            }
+        }
+        
+        @keyframes unitychan_drop {
+            0% {
+                background-position: -8em -6em;
+            }
+            100% {
+                background-position: -16em -6em;
+            }
+        }
+        
+        @keyframes flow {
+            0% 100% {
+                transform: translateY(.1rem);
+            }
+            50% {
+                transform: translateY(-.1rem);
+            }
+        }
+        
+        @media only screen and (max-aspect-ratio: 16/9) {
+            html {
+                font-size: 3.125vw;
+            }
+            #area {
+                width: 32rem;
+                height: 18rem;
+                margin-top: calc(50vh - 9rem);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="area">
+        <div id="main" class="camera">
+            <div id="scene-01" class="scene">
+                <div class="background"></div>
+                <div class="stage">
+                    <div class="board board-01"></div>
+                    <div class="board board-02"></div>
+                    <div class="board board-03"></div>
+                    <div class="door"></div>
+                </div>
+                <div class="sprites">
+                    <div class="sprite unity idle">
+                        <div class="texture"></div>
+                    </div>
+                    <div class="sprite bubble bubble-01">
+                        <div class="butterfly"></div>
+                    </div>
+                    <div class="sprite bubble bubble-02">
+                        <div class="butterfly"></div>
+                    </div>
+                    <div class="sprite key">
+                    </div>
+                </div>
+                <div class="foreground"></div>
+            </div>
+        </div>
+        <div id="ui">
+            <div class="option-buttons">
+                <div class="button refresh"></div>
+            </div>
+            <div class="control-buttons">
+                <div class="button large arrow-left"></div>
+                <div class="button large arrow-right"></div>
+            </div>
+            <div class="skill-buttons">
+                <div class="button skill-01"></div>
+                <div class="button skill-02"></div>
+                <div class="button skill-03"></div>
+            </div>
+            <div class="key">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        var unity = {
+            ele: $('.unity'),
+            moving: '',
+            action: '',
+            actionCount: 0,
+            speed: 0.1,
+            x: 4,
+            y: 1,
+            w: 2,
+            h: 2,
+            vx: 0,
+            vy: 0,
+            ax: 0,
+            ay: -0.006
+        };
+        var camera = {
+            ele: $('#scene-01'),
+            zoom: 2,
+            x: 0,
+            y: 0
+        };
+        var stage = [{
+            type: 'bubble',
+            skill: 'butterfly',
+            x: 20,
+            y: 1,
+            w: 2,
+            h: 2,
+            enable: true,
+            ele: $('.bubble-01')
+        }, {
+            type: 'bubble',
+            skill: 'butterfly',
+            x: 23,
+            y: 6,
+            w: 2,
+            h: 2,
+            enable: true,
+            ele: $('.bubble-02')
+        }, {
+            type: 'key',
+            x: 5,
+            y: 11,
+            w: 2,
+            h: 2,
+            enable: true,
+            ele: $('.sprite.key')
+        }, {
+            type: 'board',
+            x: 28,
+            y: 1,
+            w: 2,
+            h: 7,
+            enable: true,
+            ele: $('.board-01')
+        }, {
+            type: 'board',
+            x: 29,
+            y: 1,
+            w: 2,
+            h: 12,
+            enable: true,
+            ele: $('.board-01')
+        }, {
+            type: 'board',
+            x: 17,
+            y: 5,
+            w: 11,
+            h: 1,
+            enable: true,
+            ele: $('.board-02')
+        }, {
+            type: 'board',
+            x: 3,
+            y: 10,
+            w: 11,
+            h: 1,
+            enable: true,
+            ele: $('.board-03')
+        }, {
+            type: 'exit',
+            x: 27,
+            y: 1,
+            w: 2,
+            h: 2,
+            enable: true
+        }];
+        $('.button.arrow-left').on({
+            'touchstart mousedown': function(e) {
+                unity.moving = 'left';
+                $(this).addClass('active');
+            }
+        });
+        $('.button.arrow-right').on({
+            'touchstart mousedown': function(e) {
+                unity.moving = 'right';
+                $(this).addClass('active');
+            }
+        });
+        $('.button.arrow-left').on({
+            'touchend mouseup': function(e) {
+                unity.moving = '';
+                $(this).removeClass('active');
+            }
+        });
+        $('.button.arrow-right').on({
+            'touchend mouseup': function(e) {
+                unity.moving = '';
+                $(this).removeClass('active');
+            }
+        });
+        $('.button.refresh').on({
+            'touchstart mousedown': function(e) {
+                $(this).addClass('active');
+                location.reload();
+            }
+        });
+        $('.button.skill-01').on({
+            'touchstart mousedown': function(e) {
+                if ($(this).data('skill') === 'butterfly') {
+                    unity.vy = .27;
+                    unity.action = 'fly';
+                    unity.actionCount = 60;
+                    $(this).html('');
+                    $(this).data('skill', '');
+                }
+            }
+        });
+        var gameInterval = window.setInterval(function() {
+            if (unity.moving === 'left') {
+                unity.ele.removeClass("idle");
+                unity.ele.addClass("run reverse");
+                unity.vx = -1 * unity.speed;
+            } else if (unity.moving === 'right') {
+                unity.ele.removeClass("idle reverse");
+                unity.ele.addClass("run");
+                unity.vx = unity.speed;
+            } else {
+                unity.ele.removeClass("run");
+                unity.ele.addClass("idle");
+                unity.vx = 0;
+            }
+            if (unity.action === 'fly') {
+                unity.ele.removeClass("run idle");
+                unity.ele.addClass("fly");
+                unity.actionCount -= 1;
+                if (unity.actionCount === 0) {
+                    unity.action = '';
+                }
+            } else if (unity.action === '') {
+                unity.ele.removeClass("fly");
+            }
+            unity.vx += unity.ax;
+            unity.vy += unity.ay;
+            var ux = unity.x + unity.vx;
+            var uy = unity.y + unity.vy;
+            stage.map(function(item) {
+                if (!item.enable) {
+                    return;
+                }
+                var bool1 = ux <= item.x + item.w
+                var bool2 = ux + unity.w >= item.x;
+                var bool3 = uy <= item.y + item.h;
+                var bool4 = uy + unity.h >= item.y;
+                if (bool1 && bool2 && bool3 && bool4) {
+                    if (item.type === 'board') {
+                        if (unity.x <= item.x + item.w && unity.x + unity.w >= item.x) {
+                            unity.vy = 0;
+                        }
+                        if (unity.y <= item.y + item.h && unity.y + unity.h >= item.y) {
+                            unity.vx = 0;
+                        }
+                        unity.action = '';
+                    } else if (item.type === 'bubble') {
+                        item.ele.remove();
+                        item.enable = false;
+                        $('.button.skill-01').data('skill', 'butterfly').html('<div class="butterfly"></div>');
+                    } else if (item.type === 'key') {
+                        item.ele.remove();
+                        item.enable = false;
+                        $('#ui .key').show();
+                        $('.door').hide();
+                    } else if (item.type === 'exit') {
+                        if (!$('.door').is(':visible')) {
+                            $('.unity').addClass('hide');
+                            $('#area').addClass('hide');
+                            window.clearInterval(gameInterval);
+                        } else {
+                            if (unity.x <= item.x + item.w && unity.x + unity.w >= item.x) {
+                                unity.vy = 0;
+                            }
+                            if (unity.y <= item.y + item.h && unity.y + unity.h >= item.y) {
+                                unity.vx = 0;
+                            }
+                            unity.action = '';
+                        }
+                    }
+                }
+            });
+            unity.x += unity.vx;
+            unity.y += unity.vy;
+            if (unity.vy < 0 && unity.y > 1) {
+                unity.ele.addClass("drop");
+            } else {
+                unity.ele.removeClass("drop");
+            }
+            if (unity.x < 3) {
+                unity.x = 3;
+            } else if (unity.x > 27) {
+                unity.x = 27;
+            }
+            if (unity.y < 1) {
+                unity.y = 1;
+            } else if (unity.y > 17) {
+                unity.y = 17;
+            }
+            if (unity.x - camera.x < 4) {
+                camera.x = unity.x - 4;
+            } else if (unity.x - camera.x > 11) {
+                camera.x = unity.x - 11;
+            }
+            if (unity.y - camera.y < 1) {
+                camera.y = unity.y - 1;
+            } else if (unity.y - camera.y > 6) {
+                camera.y = unity.y - 6;
+            }
+            unity.ele.css('transform', 'translate(' + unity.x + 'em,-' + unity.y + 'em)');
+            camera.ele.css('transform', 'translate(-' + camera.x + 'em,' + camera.y + 'em)');
+        }, 30);
+
+    </script>
+
+</body>
+
+</html>
